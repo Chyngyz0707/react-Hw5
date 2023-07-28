@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+/*import React from "react";
 
-function App() {
+function App(){
+   const username = useInput( '')
+   const password = useInput( '')
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+      <div>
+        <input {...username} type="text" placeholder='Username' />
+        <input {...password} type="text" placeholder='password' />
+        <button onClick={() => console.log(username.value, password.value)}>Click</button>
+
+      </div>
+  );
+}*/
+
+
+
+        //REACT CONTEXT
+
+
+
+ const TitleContext = React.createContext();
+
+ const LevelThree = () => (
+ <TitleContext.Consumer>
+  { ({title,subTitle,click }) => (
+    <Fragment>
+      <h1 onClick={click}>{title}</h1>
+      <h2>{subTitle}</h2>
+    </Fragment>
+  )}</TitleContext.Consumer>
+  )
+ 
+
+ const LevelTwo = () => <LevelThree />
+ const LevelOne = () => <LevelTwo/>
+
+ class Lesson extends Component {
+  render() {
+    return (
+      <TitleContext.Provider value={{ title:"Simple title", subTitle: "Sub Title", click: () => {console.log('Hello!')}}}>
+        <LevelOne/>
+      </TitleContext.Provider>
+
+    );
+  }
+ }
+export default Lesson
+
+
+
+
+
+
+
+
+
+ 
